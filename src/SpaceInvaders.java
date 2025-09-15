@@ -1,38 +1,45 @@
 import biuoop.GUI;
-import biuoop.DrawSurface;
 import biuoop.KeyboardSensor;
+import animation.AnimationRunner;
 import game.GameFlow;
+import game.GameLevel;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * The main entry point of the application.
+ * Creates the GUI, the AnimationRunner, and the GameFlow, and then starts the game.
+ */
 public class SpaceInvaders {
-    private GUI gui;
-    private KeyboardSensor keyboard;
-    private GameFlow gameFlow;
-
-    public SpaceInvaders() {
-        this.gui = new GUI("Space Invaders", 800, 600);
-        this.keyboard = gui.getKeyboardSensor();
-        this.gameFlow = new GameFlow();
-    }
-
-    public void run() {
-        while (true) {
-            DrawSurface d = gui.getDrawSurface();
-            // Clear the screen
-            d.setColor(java.awt.Color.BLACK);
-            d.fillRectangle(0, 0, 800, 600);
-            
-            // Update and draw the game
-            gameFlow.run(d, keyboard);
-            
-            gui.show(d);
-            // Add a delay for frame rate control
-            Sleeper sleeper = new Sleeper();
-            sleeper.sleepFor(20);
-        }
-    }
+    private static final int SCREEN_WIDTH = 800;
+    private static final int SCREEN_HEIGHT = 600;
+    private static final int FRAMES_PER_SECOND = 60;
 
     public static void main(String[] args) {
-        SpaceInvaders game = new SpaceInvaders();
-        game.run();
+        GUI gui = new GUI("Space Invaders", SCREEN_WIDTH, SCREEN_HEIGHT);
+        KeyboardSensor keyboard = gui.getKeyboardSensor();
+        AnimationRunner animationRunner = new AnimationRunner(gui, FRAMES_PER_SECOND);
+        GameFlow gameFlow = new GameFlow(animationRunner, keyboard);
+
+        // Create levels
+        List<GameLevel> levels = createLevels(keyboard);
+        
+        // Run the game
+        gameFlow.runLevels(levels);
+        
+        gui.close();
+    }
+    
+    private static List<GameLevel> createLevels(KeyboardSensor keyboard) {
+        List<GameLevel> levels = new ArrayList<>();
+        
+        // Create Level 1
+        GameLevel level1 = new GameLevel(keyboard);
+        levels.add(level1);
+        
+        // Could add more levels here
+        
+        return levels;
     }
 }
