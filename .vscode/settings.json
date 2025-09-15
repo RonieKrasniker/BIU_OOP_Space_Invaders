@@ -1,0 +1,7 @@
+{
+    "java.checkstyle.configuration": "${workspaceFolder}\\biuoop.xml",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "biuoop-1.4.jar"
+    ]
+}

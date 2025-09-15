@@ -1,0 +1,418 @@
+Hierarchy For Package biuoop
+Class Hierarchy
+java.lang.Object
+biuoop.GUI
+biuoop.Sleeper
+java.lang.Throwable (implements java.io.Serializable)
+	java.lang.Exception
+		java.lang.RuntimeException
+			biuoop.DrawSurfaceAlreadyRenderedException
+			java.lang.IllegalArgumentException
+				biuoop.AlphaChannelNotSupportedException
+Interface Hierarchy
+biuoop.DialogManager
+biuoop.DrawSurface
+biuoop.KeyboardSensor
+
+
+
+Uses of Package
+biuoop
+Classes in biuoop used by biuoop 
+Class and Description
+AlphaChannelNotSupportedException
+An exception that indicates that a color with an Alpha Channel is illegal
+DialogManager
+Dialog manager, in charge of opening dialog windows for interaction with the user.
+DrawSurface
+A surface you can draw on.
+KeyboardSensor
+A sensor that provides information about what keyboard keys are pressed.
+
+
+public class AlphaChannelNotSupportedException
+extends IllegalArgumentException
+An exception that indicates that a color with an Alpha Channel is illegal
+See Also:
+Serialized Form
+Constructor Summary
+Constructors 
+Constructor and Description
+AlphaChannelNotSupportedException() 
+AlphaChannelNotSupportedException(String message) 
+AlphaChannelNotSupportedException(String message, Throwable cause) 
+AlphaChannelNotSupportedException(Throwable cause) 
+Method Summary
+Methods inherited from class java.lang.Throwable
+addSuppressed, fillInStackTrace, getCause, getLocalizedMessage, getMessage, getStackTrace, getSuppressed, initCause, printStackTrace, printStackTrace, printStackTrace, setStackTrace, toString
+Methods inherited from class java.lang.Object
+clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait
+Constructor Detail
+AlphaChannelNotSupportedException
+public AlphaChannelNotSupportedException()
+AlphaChannelNotSupportedException
+public AlphaChannelNotSupportedException(String message)
+AlphaChannelNotSupportedException
+public AlphaChannelNotSupportedException(String message,
+                                 Throwable cause)
+AlphaChannelNotSupportedException
+public AlphaChannelNotSupportedException(Throwable cause)
+
+
+
+Interface DialogManager
+
+public interface DialogManager
+Dialog manager, in charge of opening dialog windows for interaction with the user.
+Method Summary
+Methods 
+Modifier and Type	Method and Description
+boolean	showConfirmationDialog(String title, String message)
+Show a confirmation message to the user with OK/Cancel buttons.
+void	showErrorDialog(String title, String message)
+Show an error message to the user.
+Note: The code execution will pause until the user closes the dialog.
+void	showInformationDialog(String title, String message)
+Show an information message to the user.
+String	showQuestionDialog(String title, String question, String defaultValue)
+Ask the user a question in a form of a pop up window,
+Note: The code execution will pause until the user answers the question.
+void	showWarningDialog(String title, String message)
+Show a warning message to the user.
+Note: The code execution will pause until the user closes the dialog.
+boolean	showYesNoDialog(String title, String message)
+Show a confirmation message to the user with Yes/No buttons.
+Note: The code execution will pause until the user chooses an option
+Method Detail
+showQuestionDialog
+String showQuestionDialog(String title,
+                        String question,
+                        String defaultValue)
+Ask the user a question in a form of a pop up window,
+Note: The code execution will pause until the user answers the question.
+Parameters:
+title - title for the pop up window.
+question - the question text to display for the user.
+defaultValue - the default answer pre filled in the input text.
+Returns:
+the answer of the user.
+showInformationDialog
+void showInformationDialog(String title,
+                         String message)
+Show an information message to the user.
+Note: The code execution will pause until the user closes the dialog.
+Parameters:
+title - title of the pop up dialog
+message - the message inside the dialog
+showWarningDialog
+void showWarningDialog(String title,
+                     String message)
+Show a warning message to the user.
+Note: The code execution will pause until the user closes the dialog.
+Parameters:
+title - title of the pop up dialog
+message - the message inside the dialog
+showErrorDialog
+void showErrorDialog(String title,
+                   String message)
+Show an error message to the user.
+Note: The code execution will pause until the user closes the dialog.
+Parameters:
+title - title of the pop up dialog
+message - the message inside the dialog
+showConfirmationDialog
+boolean showConfirmationDialog(String title,
+                             String message)
+Show a confirmation message to the user with OK/Cancel buttons.
+Note: The code execution will pause until the user chooses an option.
+Parameters:
+title - title of the pop up dialog
+message - the message inside the dialog
+Returns:
+'true' if the user selected 'OK', 'false' otherwise
+showYesNoDialog
+boolean showYesNoDialog(String title,
+                      String message)
+Show a confirmation message to the user with Yes/No buttons.
+Note: The code execution will pause until the user chooses an option
+Parameters:
+title - title of the pop up dialog
+message - the message inside the dialog
+Returns:
+'true' if the user selected 'Yes', 'false' otherwise
+
+Interface DrawSurface
+
+public interface DrawSurface
+A surface you can draw on.
+Method Summary
+All Methods Instance Methods Abstract Methods 
+Modifier and Type	Method and Description
+void	drawCircle(int x, int y, int radius)
+Draw a circle (The edge only).
+void	drawImage(int x, int y, java.awt.Image image)
+Draw an image.
+void	drawLine(int x1, int y1, int x2, int y2)
+Draw a line between two points.
+void	drawOval(int x, int y, int width, int height)
+Draw an oval (the edge only).
+void	drawRectangle(int x, int y, int width, int height)
+Draw a rectangle (The edge only).
+void	drawText(int x, int y, java.lang.String text, int fontSize)
+Draw text.
+void	fillCircle(int x, int y, int radius)
+Draw a circle (The edge and fill).
+void	fillOval(int x, int y, int width, int height)
+Draw an oval (The edge and fill).
+void	fillRectangle(int x, int y, int width, int height)
+Draw a rectangle (The edge and fill).
+int	getHeight()
+The height in pixels of the drawing surface.
+int	getWidth()
+The width in pixels of the drawing surface.
+void	setColor(java.awt.Color color)
+Set the color that will be used to draw from now on.
+Method Detail
+getWidth
+int getWidth()
+The width in pixels of the drawing surface.
+Returns:
+number of available pixel columns.
+getHeight
+int getHeight()
+The height in pixels of the drawing surface.
+Returns:
+number of available pixel rows.
+setColor
+void setColor(java.awt.Color color)
+Set the color that will be used to draw from now on.
+Parameters:
+color - the color value,
+drawLine
+void drawLine(int x1,
+              int y1,
+              int x2,
+              int y2)
+Draw a line between two points.
+Parameters:
+x1 - x value of fist point.
+y1 - y value of fist point.
+x2 - x value of second point.
+y2 - y value of second point.
+drawOval
+void drawOval(int x,
+              int y,
+              int width,
+              int height)
+Draw an oval (the edge only).
+Parameters:
+x - x value for the center of the oval.
+y - y value for the center of the oval.
+width - width of the oval.
+height - height of the oval.
+fillOval
+void fillOval(int x,
+              int y,
+              int width,
+              int height)
+Draw an oval (The edge and fill).
+Parameters:
+x - x value for the center of the oval.
+y - y value for the center of the oval.
+width - width of the oval.
+height - height of the oval.
+drawRectangle
+void drawRectangle(int x,
+                   int y,
+                   int width,
+                   int height)
+Draw a rectangle (The edge only).
+Parameters:
+x - x value for the top left corner.
+y - y value for the top left corner.
+width - width of the rectangle.
+height - height of the rectangle.
+fillRectangle
+void fillRectangle(int x,
+                   int y,
+                   int width,
+                   int height)
+Draw a rectangle (The edge and fill).
+Parameters:
+x - x value for the top left corner.
+y - y value for the top left corner.
+width - width of the rectangle.
+height - height of the rectangle.
+drawImage
+void drawImage(int x,
+               int y,
+               java.awt.Image image)
+Draw an image.
+Parameters:
+x - x value for the top left corner.
+y - y value for the top left corner.
+image - image the draw.
+drawCircle
+void drawCircle(int x,
+                int y,
+                int radius)
+Draw a circle (The edge only).
+Parameters:
+x - x value for the center of the circle.
+y - y value for the center of the circle.
+radius - radius of the circle.
+fillCircle
+void fillCircle(int x,
+                int y,
+                int radius)
+Draw a circle (The edge and fill).
+Parameters:
+x - x value for the center of the circle.
+y - y value for the center of the circle.
+radius - radius of the circle.
+drawText
+void drawText(int x,
+              int y,
+              java.lang.String text,
+              int fontSize)
+Draw text.
+Parameters:
+x - x value for the top left corner.
+y - y value for the top left corner.
+text - the text the draw.
+fontSize - the size of the text.
+
+
+Class DrawSurfaceAlreadyRenderedException
+java.lang.Object
+java.lang.Throwable
+java.lang.Exception
+java.lang.RuntimeException
+biuoop.DrawSurfaceAlreadyRenderedException
+All Implemented Interfaces:
+Serializable
+
+public class DrawSurfaceAlreadyRenderedException
+extends RuntimeException
+An exception that will be used when DrawSurface is not used according to the API. More specifically when it is used after it was already showed.
+See Also:
+Serialized Form
+Constructor Summary
+Constructors 
+Constructor and Description
+DrawSurfaceAlreadyRenderedException() 
+DrawSurfaceAlreadyRenderedException(String message) 
+DrawSurfaceAlreadyRenderedException(String message, Throwable cause) 
+DrawSurfaceAlreadyRenderedException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) 
+DrawSurfaceAlreadyRenderedException(Throwable cause) 
+Method Summary
+Methods inherited from class java.lang.Throwable
+addSuppressed, fillInStackTrace, getCause, getLocalizedMessage, getMessage, getStackTrace, getSuppressed, initCause, printStackTrace, printStackTrace, printStackTrace, setStackTrace, toString
+Methods inherited from class java.lang.Object
+clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait
+Constructor Detail
+DrawSurfaceAlreadyRenderedException
+public DrawSurfaceAlreadyRenderedException()
+DrawSurfaceAlreadyRenderedException
+public DrawSurfaceAlreadyRenderedException(String message)
+DrawSurfaceAlreadyRenderedException
+public DrawSurfaceAlreadyRenderedException(String message,
+                                   Throwable cause)
+DrawSurfaceAlreadyRenderedException
+public DrawSurfaceAlreadyRenderedException(Throwable cause)
+DrawSurfaceAlreadyRenderedException
+public DrawSurfaceAlreadyRenderedException(String message,
+                                   Throwable cause,
+                                   boolean enableSuppression,
+                                   boolean writableStackTrace)
+
+
+biuoop
+Class GUI
+java.lang.Object
+biuoop.GUI
+
+public class GUI
+extends Object
+A Graphical user interface window.
+Constructor Summary
+Constructors 
+Constructor and Description
+GUI(String title, int width, int height) 
+Method Summary
+Methods 
+Modifier and Type	Method and Description
+void	close()
+Close the window (same as clicking on the 'X', only with code)
+DialogManager	getDialogManager()
+Get the dialog manager
+DrawSurface	getDrawSurface()
+Get a drawing surface to draw on.
+KeyboardSensor	getKeyboardSensor()
+Get the keyboard sensor.
+void	show(DrawSurface surface)
+Show the draw surface on the window.
+Methods inherited from class java.lang.Object
+clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait
+Constructor Detail
+GUI
+public GUI(String title,
+   int width,
+   int height)
+Parameters:
+title - the window title.
+width - the window width in pixels.
+height - the window height in pixels.
+Method Detail
+getDialogManager
+public DialogManager getDialogManager()
+Get the dialog manager
+Returns:
+the dialog manager
+getDrawSurface
+public DrawSurface getDrawSurface()
+Get a drawing surface to draw on.
+Returns:
+a new drawing surface you can draw on.
+show
+public void show(DrawSurface surface)
+Show the draw surface on the window. The surface will replace any previous surfaces shown.
+Parameters:
+surface - the drawing surface.
+getKeyboardSensor
+public KeyboardSensor getKeyboardSensor()
+Get the keyboard sensor.
+Returns:
+keyboard sensor that listens to key presses when this window is in focus.
+close
+public void close()
+Close the window (same as clicking on the 'X', only with code)
+
+biuoop
+Class Sleeper
+java.lang.Object
+biuoop.Sleeper
+
+public class Sleeper
+extends Object
+Helper class for pausing code execution.
+Constructor Summary
+Constructors 
+Constructor and Description
+Sleeper() 
+Method Summary
+Methods 
+Modifier and Type	Method and Description
+void	sleepFor(long milliseconds)
+Pause code execution for a number of milliseconds.
+Methods inherited from class java.lang.Object
+clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait
+Constructor Detail
+Sleeper
+public Sleeper()
+Method Detail
+sleepFor
+public void sleepFor(long milliseconds)
+Pause code execution for a number of milliseconds.
+Parameters:
+milliseconds - - the amount of milliseconds to pause for.

@@ -1,0 +1,8 @@
+*.class
+*.jar
+!biuoop-1.4.jar
+!checkstyle-8.44-all.jar
+*.log
+*.tmp
+*~
+.DS_Store
