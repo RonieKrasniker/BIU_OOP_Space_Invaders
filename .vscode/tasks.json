@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Export Javadoc to TXT",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"scripts/export-javadoc-txt.ps1"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

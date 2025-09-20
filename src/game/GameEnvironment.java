@@ -4,7 +4,6 @@ package game;
 
 import java.util.ArrayList;
 import java.util.List;
-import biuoop.DrawSurface;
 import interfaces.Collidable;
 import geometry.Rectangle;
 
@@ -15,12 +14,16 @@ import geometry.Rectangle;
 public class GameEnvironment {
     private List<Collidable> collidables;
 
+    /**
+     * Construct an empty game environment.
+     */
     public GameEnvironment() {
         this.collidables = new ArrayList<>();
     }
 
     /**
      * Add the given collidable to the environment.
+     *
      * @param c the collidable to add
      */
     public void addCollidable(Collidable c) {
@@ -29,6 +32,7 @@ public class GameEnvironment {
 
     /**
      * Remove the given collidable from the environment.
+     *
      * @param c the collidable to remove
      */
     public void removeCollidable(Collidable c) {
@@ -37,6 +41,7 @@ public class GameEnvironment {
 
     /**
      * Get all collidables in the environment.
+     *
      * @return a list of all collidables
      */
     public List<Collidable> getCollidables() {
@@ -45,6 +50,7 @@ public class GameEnvironment {
 
     /**
      * Check for collision with the given rectangle.
+     *
      * @param rect the rectangle to check
      * @return the collidable that was hit, or null if no collision
      */
